@@ -59,7 +59,7 @@ Ensure you have the following installed:
 2. **Navigate to Backend Directory:**
 
    ```bash
-   cd backend
+   cd Spiritual.server
    ```
 
 3. **Install Dependencies:**
@@ -96,7 +96,7 @@ Ensure you have the following installed:
 1. **Navigate to Frontend Directory:**
 
    ```bash
-   cd ../frontend
+   cd Spiritual.Client.Advance
    ```
 
 2. **Install Dependencies:**

@@ -10,6 +10,7 @@ describe('GropChatComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [GropChatComponent]
     })
+    
     .compileComponents();
 
     fixture = TestBed.createComponent(GropChatComponent);

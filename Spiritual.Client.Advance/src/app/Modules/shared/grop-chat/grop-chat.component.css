@@ -9,7 +9,6 @@
 .user-chat {
     height:  95%;
 }
-
 .user-msg {
     display: flex;
     flex-direction: row;

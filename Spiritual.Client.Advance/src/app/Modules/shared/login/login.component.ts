@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { SignalRService } from '../../../Services/signal-r.service';
 
 @Component({
+  
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',

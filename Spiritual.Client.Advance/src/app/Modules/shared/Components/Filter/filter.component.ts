@@ -7,7 +7,6 @@ import { Subject } from "rxjs";
     templateUrl: './filter.component.html',
     styleUrl:'./filter.component.css'
 })
-
 export class FilterComponent{
 
     @Output() OrderbyASC$ : Subject<void> = new Subject();

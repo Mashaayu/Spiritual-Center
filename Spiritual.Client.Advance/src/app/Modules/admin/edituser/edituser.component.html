@@ -1,0 +1,11 @@
+<div>
+    <app-dynamic-form 
+    [Items]="Items | async" 
+    [ButtonObj]="ButtonObj"
+    (FileInput$)="FileInput($event)"
+    (Submit$)="EditDevotee($event)"
+    [img]="image"
+     ></app-dynamic-form>
+</div>
+
+

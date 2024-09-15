@@ -1,0 +1,6 @@
+@Spiritual.server_HostAddress = http://localhost:5296
+
+GET {{Spiritual.server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

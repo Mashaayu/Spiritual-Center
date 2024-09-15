@@ -1,0 +1,63 @@
+
+
+<div class="center dropup">
+    <h3 class="heading ">
+        One Donation Makes the change
+    </h3>
+    <div class="row" >
+        
+        <div class="col">
+            <form [formGroup]="loginForm" (submit)="Login()" >
+                <header class="x"><h2>Login </h2></header>
+                <br>
+                <label for="username">Username</label> 
+                <input type="text" name="" id="username" class="form-control"  formControlName = "UserName" >
+                <div *ngIf="f['UserName'].errors && f['UserName'].touched " id="usernameErr">
+                    <p *ngIf="f['UserName'].errors['required']" class="error">Username is required</p>
+                </div>
+        
+        
+                <label for="password">Password</label>
+                <input type="text" name="" id="password" class="form-control" formControlName = "Password" >
+                <div *ngIf="f['Password'].errors && f['Password'].touched " id="passwordErr" >
+                    <p *ngIf="f['Password'].errors['required']" class="error">Password is required</p>
+                </div>
+        
+                <label for="role">Role</label>
+                <select name="" id="role" class="form-control" class="form-control" formControlName = "Role" #role (change)="OnValueChangeOfRole(role.value)" >
+                    <option value="devotee" >Devotee</option>
+                    <option value="admin">Admin</option>
+                </select  >
+                <div *ngIf="f['Role'].errors && f['Role'].touched" id="roleErr">
+                    <p *ngIf="f['Role'].errors['required']" class="error">Role is required</p>
+                </div>
+                
+        
+                <div [hidden]="val">
+                    <label for="otp">OTP</label>
+                    <input type="text" name="" id="otp" class="form-control" formControlName = "OTP" >
+                    
+                    <div *ngIf="f['OTP'].errors && f['OTP'].touched" id="otpErr">
+                        <p *ngIf="f['OTP'].errors['required'] " class="error">Otp is required</p>
+                    </div>
+                </div>
+                
+                <p id="authInfo" class="error">{{InvalidCreds}}</p>
+            
+                <button type="submit" id="submit" class="btn btn-secondary">{{buttontext}}</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
+
+<button class="open-button" (click)="openForm()">Chat</button>
+
+<div class="chat-popup" id="myForm" [hidden]="widget">
+    
+  <div class="notifications" #alerts>
+    <h3>Notifications</h3>
+  </div>
+
+  <button type="button" class="btn btn-light"  (click)="openForm()">Close</button>
+</div>

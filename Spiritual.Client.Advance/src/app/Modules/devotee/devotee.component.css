@@ -1,0 +1,51 @@
+.nav-link:hover{
+    background-color: rgb(77, 76, 76);
+    
+}
+.nav-link{
+    padding: 10px 20px !important;
+    font-size: larger;
+    opacity: 1 !important;
+    color: aliceblue;
+}
+
+.active{
+    background-color: rgb(138, 138, 138);
+}
+.navbar{
+    padding: 0;
+    height: fit-content;
+}
+
+.navbar-collapse {
+    transition: height 0.3s ease; 
+}
+
+
+.nav-item .nav-link {
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.nav-item .nav-link:hover {
+    background-color: #343a40; 
+    color: #ffffff;
+}
+
+
+.devoteechat{
+    background-color: #555;
+    color: rgb(252, 252, 252);
+    padding: 13px 20px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 200px;
+}
+
+.chatRoomDevotee{
+    position: fixed;
+   z-index: 9;
+   top : 80px
+}

@@ -1,0 +1,13 @@
+1 = >  
+    sorting is not working on Devotee side for their Payment list
+
+    com : Devotee
+    route : mypayments 
+
+2 => 
+    After making payment list is not getting rendered 
+    needed logout first then login and works ,
+
+
+    com : Devotee,
+    route : my payments

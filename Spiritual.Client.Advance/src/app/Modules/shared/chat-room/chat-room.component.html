@@ -1,0 +1,92 @@
+
+<div class="chatroom">
+    <div class="close-btn">
+        <div style="flex:90%;">
+            <button class="btn btn-light open" id="allchat" (click)="OpenChatRoomandChat('allchat')">Chats</button>
+            <button class="btn btn-light" id="chatroom" (click)="OpenChatRoomandChat('chatroom')">Chat Room</button>
+            <button class="btn btn-light" id="notify" (click)="OpenChatRoomandChat('notify')">Send Notification</button>
+        </div>
+        <button class="closebtn btn btn-secondary" (click)="CloseChats()">X</button>
+    </div>
+    <div class="chats" [hidden]="!chats" >
+        <div class="open-chats" id="opn-chats"[hidden]="!showChats" >
+           <div class="user-chat">
+                <div class="card user-msg" *ngFor="let user of  ActivechatUsers" (click)="ActivateUser(user)">
+                    
+                    <img  [src]="'https://www.w3schools.com/bootstrap4/img_avatar3.png'" alt="">
+                    <p> 
+                        {{user.name}}
+                    </p>
+
+                </div>
+           </div>
+
+            <div class="create-new">
+                <select class="form-control active"  #userId (change)="OnSelectuser(userId.value)">
+                       
+                    <option value="selected" selected>New Chat</option>
+                    
+                    <ng-container *ngFor="let user of Users">
+                        <option [value]="user.id" 
+                         *ngIf=" user.id != UserId"
+                         [id]="user.id"> {{user.name}}</option>
+                    </ng-container>
+
+                </select>
+            </div>
+        </div>
+        <div class="message-box" id="msg-box" [hidden]="!msgBox" >
+            <div class="active-chat" >
+                <button class="btn btn-secondary" id="btn-showchat" (click)="OpenUserChat()">Back</button>
+                <img src="https://www.w3schools.com/bootstrap4/img_avatar3.png" alt="">
+                <p style="margin-top: 5px;" >{{activechat.name}}</p>
+                
+            </div>
+            <hr>
+            <div class="show-messages" id="display-msg">
+                <app-chat-box
+                    [UserID]="UserId"
+                    [Username]="UserName"
+                    [ActiveChatMessages]="ActiveChatMessages"
+                >
+                </app-chat-box>
+
+            </div>
+            <div class="chats-action" >
+                <input placeholder="send message.."  class="form-control" [(ngModel)]="UserMessage">
+                <button type="submit" class="btn btn-primary" (click)="SendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    <div class="chats" [hidden] = "!chatRoom"  >
+        <app-grop-chat style="width: 100%; height: 100%;"
+         [isAdmin]="isAdmin"
+         [Users]="Users"
+            [MyGroups]="MyGroups"
+            [UserId]="UserId"
+         >
+        </app-grop-chat>
+    </div>
+
+    <div class="chats" [hidden]="!notification" >
+        <div class="open-chats" id="opn-chatsNotification"[hidden]="!showChats" >
+            
+         </div>
+         <div class="message-box" id="msg-boxNotification" [hidden]="!msgBox" >
+             <div class="active-chat" >
+                 
+             </div>
+             <hr>
+             <div class="show-messages" id="display-notifications">
+ 
+ 
+             </div>
+             <div class="chats-action" >
+                 <input placeholder="send notification.."  class="form-control" [(ngModel)]="NotificationMessage" id="inputNotify">
+ 
+                 <button type="submit" class="btn btn-primary" (click)="sendNotification()">Send</button>
+             </div>
+         </div>
+    </div>
+    
+</div>

@@ -1,0 +1,78 @@
+.center{
+   width: 40vw;
+   height: 40vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center; 
+   align-items: center;
+    padding: 0;
+    margin-left: 30vw;
+   margin-top: 30vh;
+}
+
+.row{
+   /* width: 20%; */
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   width: 400px;
+   margin: 20px;
+
+}
+
+form{
+    height: 100%;
+    width: 100%;
+    padding: 10px 20px 10px 20px;
+   margin: 0;
+   
+}
+.error{
+    color: red;
+    font-size: 15px;
+}
+label{
+    font-size: medium;
+  
+}        
+button{
+   width: 100%;
+}
+
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: rgb(252, 252, 252);
+  padding: 13px 20px;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 200px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Set a style for the submit/send button */
+.btn-primary {
+   width: 60px;
+}
+
+/* Add a red background color to the cancel button */
+.btn-secondary {
+  width: 100%;
+}
+.notifications{
+   width: 20rem;
+   height: 50vh;
+   padding: 3vw;
+   background-color: white;
+   overflow: auto;
+}

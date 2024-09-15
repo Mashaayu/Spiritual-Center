@@ -1,0 +1,7 @@
+<div style="height: 100%; width: 100%;">
+        <ng-container *ngFor="let chat of ActiveChatMessages">
+
+            <p [class]="chat.senderID == UserID ? 'alert alert-success myMessage' : 'alert alert-primary userMessage' ">{{chat.messageText}}</p>
+            
+        </ng-container>
+</div>

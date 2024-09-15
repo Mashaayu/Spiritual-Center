@@ -1,0 +1,139 @@
+
+<filter-root (OnSearch$)="Onsearch($event)" (OrderbyASC$)="OrderByAsc()" (OrderbyDesc$)="OrderByDesc()"></filter-root>
+
+<label for="devoteeList" style="margin-left: 30px;">Devotee List</label>
+
+<table class="table table-hover" id="devoteeList">
+    <thead>
+        <tr>
+            <th scope="col" mat-sort-header="DevoteeId">Devotee Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">EmailId</th>
+            <th scope="col">Flat No</th>
+            <th scope="col">Area</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Pincode</th>
+            <th scope="col">Initiation Date</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody id="devoteeList">
+        <tr *ngFor="let devotee of Devotees | paginate: { itemsPerPage: 3, currentPage: p }"> 
+            <td scope="row">{{devotee.devoteeLoginId}}</td>
+            <td >{{devotee.firstname}}</td>
+            <td >{{devotee.middlename}}</td>
+            <td >{{devotee.lastname}}</td>
+            <td >{{devotee.emaidId}}</td>
+            <td>{{devotee.flatno}}</td>
+            <td>{{devotee.area}}</td>
+            <td>{{devotee.city}}</td>
+            <td>{{devotee.state}}</td>
+            <td>{{devotee.pincode}}</td>
+            <td>{{devotee.initiationDate}}</td>
+        
+            <td><img src={{devotee.userImageURL}} alt=""></td>
+            <td>
+                <button class="btn btn-primary" (click)="EditUser(devotee.id)" id="editBtn-{{devotee.devoteeLoginId}}" >Edit</button>
+                <button class="btn btn-secondary" id="deleteBtn-{{devotee.devoteeLoginId}}" (click)="DeleteUser(devotee.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table> 
+
+<pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+<!-- <table mat-table [dataSource]="dataSource" matSort>
+
+  
+    <ng-container matColumnDef="DevoteeId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Devotee Id</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.devoteeLoginId}}</td>
+    </ng-container>
+  
+   
+    <ng-container matColumnDef="FirstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.firstname}}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="MiddleName">
+      <th mat-header-cell *matHeaderCellDef>Middle Name</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.middlename}}</td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="LastName">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.lastname}}</td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="EmailId">
+      <th mat-header-cell *matHeaderCellDef>EmailId</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.emaidId}}</td>
+    </ng-container>
+  
+ 
+    <ng-container matColumnDef="FlatNo">
+      <th mat-header-cell *matHeaderCellDef>Flat No</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.flatno}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Area">
+      <th mat-header-cell *matHeaderCellDef>Area</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.area}}</td>
+    </ng-container>
+  
+   
+    <ng-container matColumnDef="City">
+      <th mat-header-cell *matHeaderCellDef>City</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.city}}</td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="State">
+      <th mat-header-cell *matHeaderCellDef>State</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.state}}</td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="Pincode">
+      <th mat-header-cell *matHeaderCellDef>Pincode</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.pincode}}</td>
+    </ng-container>
+  
+    
+    <ng-container matColumnDef="InitiationDate">
+      <th mat-header-cell *matHeaderCellDef>Initiation Date</th>
+      <td mat-cell *matCellDef="let devotee">{{devotee.initiationDate | date}}</td>
+    </ng-container>
+  
+   
+    <ng-container matColumnDef="Photo">
+      <th mat-header-cell *matHeaderCellDef>Photo</th>
+      <td mat-cell *matCellDef="let devotee">
+        <img [src]="devotee.userImageURL" alt="Photo" width="100" height="100"/>
+      </td>
+    </ng-container>
+  
+   
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let devotee">
+      
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> 
+
+<mat-paginator 
+  [pageSizeOptions]="pagesizeOps"
+>
+
+</mat-paginator> -->

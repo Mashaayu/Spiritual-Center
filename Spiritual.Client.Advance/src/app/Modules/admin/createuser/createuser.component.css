@@ -1,0 +1,8 @@
+.main{
+    margin: 10% 0% 0% 30%;
+    width: 40%;
+}
+.error{
+    color: red;
+    font-size: 15px;
+}

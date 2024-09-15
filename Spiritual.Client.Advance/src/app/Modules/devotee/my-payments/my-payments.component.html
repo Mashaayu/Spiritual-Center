@@ -1,0 +1,26 @@
+
+<filter-root (OnSearch$)="OnSearch($event)" (OrderbyASC$)="OrderByAsc()" (OrderbyDesc$)="OrderByDesc()"></filter-root>
+<table class="table" id="allMyPaymentList">
+    <thead>
+        <tr>
+            <th>DevoteeId</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Total Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr  *ngFor="let item of MyDonationList | paginate: { itemsPerPage: 3, currentPage: p };let i= index "> 
+            <td [ngStyle]="style(item.donationAmount)">{{DevoteeID}}</td>
+            <td [ngStyle]="style(item.donationAmount)">{{item.month}}</td>
+            <td [ngStyle]="style(item.donationAmount)">{{item.year}}</td>
+            <td [ngStyle]="style(item.donationAmount)" id="payment-{{i}}.bg-green">{{item.donationAmount}}</td>
+        </tr>
+        
+    </tbody>
+
+</table>
+
+<pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls>
+

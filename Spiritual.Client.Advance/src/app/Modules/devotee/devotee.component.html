@@ -1,0 +1,44 @@
+
+<div class="devoteemain">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['mypayments']" id="myPaymentsBtn"(click)="isActive('myPaymentsBtn')">My Payments</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link"   id="profileBtn" [routerLink]="['profile']" (click)="isActive('profileBtn')">Profile</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" [routerLink]="['payonline']" id="payOnlineBtn" (click)="isActive('payOnlineBtn')">Pay Online</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" (click)="LogOut()">LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="router">
+        <router-outlet>
+
+        </router-outlet>
+        <button class="devoteechat btn btn-primary" (click)="this.Openchat = true" >Chats</button>
+    </div>
+
+    <div class="chatRoomDevotee">
+        <app-chat-room [hidden]="!Openchat" 
+        (close$)="CloseChat()"
+        [isAdmin]="false"
+        [UserId]="devoteeID"
+        >
+         </app-chat-room>
+   </div>
+</div>

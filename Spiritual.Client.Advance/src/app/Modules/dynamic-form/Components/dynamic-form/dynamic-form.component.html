@@ -1,0 +1,15 @@
+<form (ngSubmit)="OnSubmit()">
+
+<div class="form-row" *ngFor="let Item of Items">
+     
+    <app-dynamic-form-item [Item]="Item" 
+    [form]="form"
+    (FileInput$)="FileInput($event)"
+     style="width: 100%;"  
+     [img]="img"
+    > </app-dynamic-form-item>
+           
+</div>
+        <button type="submit" [id]="ButtonObj.id"
+        class="btn btn-secondary">{{ButtonObj.name}}</button>
+</form>

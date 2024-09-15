@@ -1,0 +1,77 @@
+<div class="filters">
+
+   <div>
+      <label for="ascdsc">Sort List</label>
+      <div id="ascdsc">
+         <p id="sortByAsc" (click)="OrderByASC()"> &#9195;</p>
+         <p id="sortByDesc" (click)="OrderByDesc()">&#9196;</p>
+      </div>
+   </div>
+   
+   <div class="search">
+    <input type="search" name="" id="searchInput" class="form-control"  (input)="OnSearch()" [(ngModel)]="inputSearch">
+    <button class="btn btn-secondary" >Search</button>
+   </div>
+
+</div>  
+
+<select class="from-control" (change)="ChangeList()" class="form-control" id="donationMenu">
+    <option value="paid" selected>All Payments</option>
+    <option value="unpaid">Unpaid Donation</option>
+ </select>
+ 
+ <table id="allPaymentList" *ngIf="!val" class="table">
+      <thead>
+         <tr>
+             <th>Devotee Id</th>
+             <th>Month</th>
+             <th>Year</th>
+             <th>Amount</th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let item of Donations| paginate: { itemsPerPage: 3, currentPage: d }" >
+             <td [ngStyle]="style(item.donationAmount)">{{item.devoteeId}}</td>
+             <td [ngStyle]="style(item.donationAmount)">{{item.month}}</td>
+             <td [ngStyle]="style(item.donationAmount)">{{item.year}}</td>
+             <td [ngStyle]="style(item.donationAmount)">{{item.donationAmount}}</td>
+         </tr>
+      </tbody>
+ </table>
+ 
+ 
+ <table id="allUnpaidList"  *ngIf="val" class="table">
+      <thead>
+         <tr>
+             <th scope="col">Devotee Id</th>
+             <th scope="col">First Name</th>
+             <th scope="col">Middle Name</th>
+             <th scope="col">Last Name</th>
+             <th scope="col">EmailId</th>
+             <th scope="col">Flat No</th>
+             <th scope="col">Area</th>
+             <th scope="col">City</th>
+             <th scope="col">State</th>
+             <th scope="col">Pincode</th>
+             <th scope="col">Initiation Date</th>
+ 
+         </tr>
+      </thead>
+      <tbody>
+         <tr *ngFor="let devotee of UnpaidDevotees| paginate: { itemsPerPage: 3, currentPage: d }" >
+                 <td>{{devotee.devoteeLoginId}}</td>
+                 <td>{{devotee.firstname}}</td>
+                 <td>{{devotee.middlename}}</td>
+                 <td>{{devotee.lastname}}</td>
+                 <td>{{devotee.emaidId}}</td>
+                 <td>{{devotee.flatno}}</td>
+                 <td>{{devotee.area}}</td>
+                 <td>{{devotee.city}}</td>
+                 <td>{{devotee.state}}</td>
+                 <td>{{devotee.pincode}}</td>
+                 <td>{{devotee.initiationDate}}</td>
+         </tr>
+      </tbody>
+ </table>
+
+ <pagination-controls (pageChange)="d = $event" class="float-right"></pagination-controls>

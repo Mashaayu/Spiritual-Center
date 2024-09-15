@@ -1,0 +1,82 @@
+<div  style="width: 100%; height: 100%; display: flex;">
+    <div class="open-chats" id="opn-chatsRoom"[hidden]="!showChats" >
+        <div class="user-chat">
+             
+             <div class=" card user-msg" *ngFor="let group of MyGroups " (click)="ActivateGroup(group)" >
+                 <img src="https://www.w3schools.com/bootstrap4/img_avatar3.png" alt="">
+                 <p>{{group.groupName}}</p>
+             </div>
+             
+        </div>
+         <div class="create-new">
+             <button class="btn btn-light active" *ngIf="isAdmin"  (click)="OpenGroupForm()">Create New chatroom</button>
+         </div>
+    </div>
+
+
+    <div class="message-box" id="msg-boxRoom" [hidden]="!msgBox" >
+         
+        <div class="active-chat" >
+             <button class="btn btn-secondary" id="btn-showchatRoom" (click)="OpenUserChat()">Back</button>
+             <img src="https://www.w3schools.com/bootstrap4/img_avatar3.png" alt="">
+          <p style="margin-top: 5px;">{{ActiveGroup.groupName}}</p>
+        <hr>
+
+        <div class="show-messages" id="display-msgRoom">
+            <div *ngFor="let message of ActiveGroup.messages" class="usermsg" >
+                <img *ngIf="message.senderID != UserId" src="https://www.w3schools.com/bootstrap4/img_avatar3.png" alt="">
+                <p  [style]="message.senderID == UserId ? 'alert alert-sucess myMessage':'alert alert-primary userMessage'">
+                    {{message.message}}
+                </p>
+            </div>  
+        </div>
+
+        <div class="chats-action" >
+            <input placeholder="send Group message."  class="form-control" [(ngModel)]="Message">
+    
+            <button type="submit" class="btn btn-primary" (click)="SendGroupMessage()">Send</button>
+        </div>
+    </div>
+
+    <div class="CreateGroupForm" [hidden]="!GroupForm">
+        <button class="btn btn-secondary" (click)="CloseGropFrom()">Back</button>
+        <br><br>
+        <div class="input-group mb-3" style="width: 30vw; padding-left: 3vw;">
+            
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" [(ngModel)]="GroupNameInput" >
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Group name</span>
+            </div>
+        </div>
+
+        <div style="width: 100%;height: 80%; padding-left: 3vw;">
+            <h4 style="margin-left: 10vw;">Select Users</h4>
+             <br><br>   
+            
+            <div style="overflow-y: scroll; height: 40%;">
+                <ul class="list-group list-group-flush"  >
+                    <ng-container  *ngFor="let user of selectedUsers">
+                        <li class="list-group-item">{{user.name}}  <button class="unselect-btn" (click)="this.UnSelectUser(user.id)">x</button></li>
+                    </ng-container>
+                </ul>
+            </div>
+            
+            <br>
+            <div class="input-group mb-3" style="width: 30vw;">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect01">Users</label>
+                </div>
+                
+                <select class="form-control"  #user id="inputGroupSelect01" (change)="OnUserSelect(user.value)">
+                    <option selected>Choose...</option>
+                   <ng-container *ngFor="let user of Users">
+                    <option [value]="user.id">{{user.name}}</option>
+                   </ng-container>
+                </select>
+            </div>
+            <button class="btn btn-info"  (click)="CreateGroup()" style="margin-left: 13vw;">Create Group</button>
+        </div>
+
+    </div>
+
+</div>

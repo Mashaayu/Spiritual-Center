@@ -1,0 +1,17 @@
+<div class="card shadow-lg p-3 mb-5 bg-white rounded">
+    <img src="" alt="" [src]="devotee.userImageURL" style="height: 100px; width: 100px;">
+    <h3>{{devotee.firstname}} {{devotee.middlename}} {{devotee.lastname}}</h3>
+    <br><br>
+
+    <p  class="bigfont">Registred On :</p>
+    <p>{{devotee.devoteeLoginId}}</p>
+    <br>
+    <p   class="bigfont">Address </p>
+    <address>
+        {{devotee.flatno}} <br>
+        {{devotee.city}} <br>
+        {{devotee.state}} <br>
+        {{devotee.area}} <br>
+        {{devotee.emaidId}} <br>
+    </address>
+</div>

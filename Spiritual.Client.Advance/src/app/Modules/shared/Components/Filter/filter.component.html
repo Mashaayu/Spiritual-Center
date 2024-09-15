@@ -1,0 +1,15 @@
+<div class="filters">
+    <div>
+        <label for="ascdsc">Sort List</label>
+        <div id="ascdsc">
+           <p id="sortByAsc" (click)="OrderByAsc()"> &#9195;</p>
+           <p id="sortByDesc" (click)="OrderByDesc()">&#9196;</p>
+        </div>
+     </div>
+     
+     <div class="search">
+      <input type="search" name="" id="searchInput" class="form-control"  (input)="Onsearch()" [(ngModel)]="inputSearch">
+      <button class="btn btn-secondary" >Search</button>
+     </div>
+  
+</div>  

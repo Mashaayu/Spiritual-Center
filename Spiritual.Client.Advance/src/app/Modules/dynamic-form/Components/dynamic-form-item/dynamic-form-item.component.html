@@ -1,0 +1,21 @@
+<div [formGroup]="form" *ngIf="form">
+    <label [attr.for]="Item.id">{{Item.label}}</label>
+        
+    <ng-container   *ngIf="Item.controltype != 'file'">
+        <input [type]="Item.controltype"  [formControlName]="Item.key" [id]="Item.key" class="form-control" >
+
+        <div  *ngIf="f[Item.key].errors && f[Item.key].touched"  [id]="Item.ErrorId">
+
+            <ng-container  *ngFor="let obj of Item.validators" >
+                 <p *ngIf="hasError(Item.key,obj.error)" class="errors">{{obj.message}}</p>   
+            </ng-container>
+           
+        </div>
+    </ng-container>
+
+    <ng-container  *ngIf="Item.controltype == 'file'">
+         <input [type]="Item.controltype"  [formControlName]="Item.key" [id]="Item.key" class="form-control" (change)="FileInput($event.target)">
+         {{img}}
+    </ng-container>
+
+</div>

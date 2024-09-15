@@ -1,0 +1,44 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+.card{
+    max-width: 400px;
+    padding: 10%;
+    margin: 5% 0% 0% 40%;
+}
+address{
+    text-align:  start;
+}
+
+.bigfont{
+    font-size: 20px;
+}
+
+@media screen and (max-width:1000px) {
+    .card{
+        max-width: 300px;
+        padding: 7%;
+        margin: 4% 0% 0% 30%;
+    }
+    h3{
+        font-size: 15px;
+    }
+    .bigfont{
+        font-size: 15px;
+    }
+
+}
+@media screen and (max-width:500px) {
+    .card{
+        max-width: 200px;
+        padding: 5%;
+        margin: 3% 0% 0% 20%;
+    }
+    h3{
+        font-size: 15px;
+    }
+    .bigfont{
+        font-size: 15px;
+    }
+
+}

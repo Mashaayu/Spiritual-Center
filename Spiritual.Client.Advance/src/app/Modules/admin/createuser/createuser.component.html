@@ -1,0 +1,8 @@
+<div>
+    <app-dynamic-form 
+    [Items]="Items | async" 
+    [ButtonObj]="ButtonObj"
+    (FileInput$)="FileInput($event)"
+    (Submit$)="CreateDevotee($event)"
+     ></app-dynamic-form>
+</div>

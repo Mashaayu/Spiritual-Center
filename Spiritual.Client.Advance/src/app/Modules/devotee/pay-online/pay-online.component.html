@@ -1,0 +1,37 @@
+<form (submit)="MakeDonation()" [formGroup]="DonationForm"> 
+   
+
+    <label for="year">Year</label>
+    <select name="" id="year" formControlName="Year"  #y class="form-control" (change)="OnChanges(y.value,m.value)">
+        <ng-container *ngFor="let item of [2020,2023,2024]">
+            <option value="{{item}}">{{item}}</option>
+        </ng-container>
+    </select>
+    <div *ngIf="f['Year'].errors && f['Year'].touched" id="yearErr">
+        <p *ngIf="f['Year'].errors['required']" class="error">Year is required</p>
+    </div>
+    <p [hidden]="!YearFlag" class="error">Can not select year less than your registration year</p>
+
+
+    <label for="month">Month</label>
+    <select name="" id="month" formControlName="Month" #m class="form-control" (change)="OnChanges(y.value,m.value)">
+            <ng-container *ngFor="let item of [1,2,3,4,5,6,7,8,9,10,11,12]">
+                <option value="{{item}}">{{item}}</option>  
+            </ng-container>
+    </select>
+    <div *ngIf="f['Month'].errors && f['Month'].touched" id="monthErr">
+        <p *ngIf="f['Month'].errors['required']" class="error">Month is required</p>
+    </div>
+    <p [hidden]="!monthFlag" class="error">Can not select month less than your registration month</p>
+
+
+
+    <label for="amount" >amount</label>
+    <input type="number" formControlName="Amount" name="" id="amount" class="form-control">
+    <div *ngIf="f['Amount'].errors && f['Amount'].touched" id="amountErr">
+        <p *ngIf="f['Amount'].errors['required']" class="error">Amount is required</p>
+        <p *ngIf="f['Amount'].errors['min']" class="error">Amount should not be less than 100</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="submit">Make Donation</button>
+</form>
